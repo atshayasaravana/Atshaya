@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atshaya | Birthday Journey</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      defer
+    ></script>
+  </head>
+  <body class="main-page">
+    <div class="gradient-backdrop"></div>
+    <div class="starfield" id="mainStarfield"></div>
+
+    <header class="top-nav glass-panel">
+      <div class="brand">
+        <span class="brand-mark"></span>
+        <span class="brand-text">Atshaya ku oru Birthday Wish</span>
+      </div>
+      <nav class="nav-links">
+        <button class="nav-link" data-scroll-to="#hero">Intro</button>
+        <button class="nav-link" data-scroll-to="#journey">Journey</button>
+        <button class="nav-link" data-scroll-to="#memories-timeline">
+          Timeline
+        </button>
+        <button class="nav-link" data-scroll-to="#finale">Finale</button>
+      </nav>
+    </header>
+
+    <main class="page-shell">
+      <!-- 1. Cinematic landing -->
+      <section id="hero" class="section hero-section">
+        <div class="hero-content">
+          <p class="eyebrow reveal">Oru Kutty Birthday Story Atshayahhhh ku....</p>
+          <h1 class="hero-title reveal">
+            First of all Sorry Atshayahhhh,  
+            <span class="hero-gradient">Yepdiyum Unaku Wish panna maatahh Nu Nenaikrean.</span>
+          </h1>
+          <p class="hero-subtitle reveal">
+            Porumaiya Scroll Pannu. Ovvoru Memory ah porumaiya paaru...
+          </p>
+
+          <div class="hero-countdown reveal">
+            <div class="countdown-segment">
+              <span id="days" class="countdown-number">00</span>
+              <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-segment">
+              <span id="hours" class="countdown-number">00</span>
+              <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-segment">
+              <span id="minutes" class="countdown-number">00</span>
+              <span class="countdown-label">Minutes</span>
+            </div>
+            <div class="countdown-segment">
+              <span id="seconds" class="countdown-number">00</span>
+              <span class="countdown-label">Seconds</span>
+            </div>
+          </div>
+
+          <button
+            class="btn primary-btn hero-cta reveal"
+            data-scroll-to="#journey"
+          >
+            Aarambikalama....
+          </button>
+        </div>
+      </section>
+
+      <!-- 2. Journey through her universe -->
+      <section id="journey" class="section journey-section">
+        <div class="section-header">
+          <p class="eyebrow reveal">Orbit I</p>
+          <h2 class="section-title reveal">Journey Through our Universe</h2>
+          <p class="section-subtitle reveal">
+            Each planet holds a chapter of our story. Tap one to land there.
+          </p>
+        </div>
+
+        <div class="planet-orbit">
+          <button
+            class="planet planet--memory reveal"
+            data-planet="first-memory"
+          >
+            <span class="planet-label">First Memory</span>
+          </button>
+          <button
+            class="planet planet--love reveal"
+            data-planet="things-i-love"
+          >
+            <span class="planet-label">Things I Love</span>
+          </button>
+          <button
+            class="planet planet--fun reveal"
+            data-planet="fun-fact"
+          >
+            <span class="planet-label">Fun Fact</span>
+          </button>
+          <button
+            class="planet planet--future reveal"
+            data-planet="about-future"
+          >
+            <span class="planet-label">About Future</span>
+          </button>
+        </div>
+
+        <article id="planetDetail" class="planet-detail glass-panel">
+          <h3 class="planet-detail-title">Choose a planet to begin.</h3>
+          <p class="planet-detail-body">
+            Each world is filled with little pieces of Atshaya that turned
+            into galaxies in my heart.
+          </p>
+        </article>
+      </section>
+
+      <!-- 3. Memory timeline -->
+      <section id="memories-timeline" class="section timeline-section">
+        <div class="section-header">
+          <p class="eyebrow reveal">Orbit II</p>
+          <h2 class="section-title reveal">Can We Rewind</h2>
+          <p class="section-subtitle reveal">
+            Turn each page slowly. Some memories are meant to be reread.
+          </p>
+        </div>
+
+        <!-- Book-style memory pages are created dynamically in script.js -->
+        <div id="timelineBook" class="timeline-book reveal">
+          <article id="timelinePage" class="timeline-page glass-panel">
+            <p id="timelinePageDate" class="timeline-date"></p>
+            <h3 id="timelinePageTitle" class="timeline-title"></h3>
+            <div id="timelinePageMedia" class="timeline-media"></div>
+            <p id="timelinePageText" class="timeline-text"></p>
+          </article>
+
+          <div class="timeline-nav">
+            <button
+              id="timelinePrev"
+              type="button"
+              class="btn subtle-btn"
+            >
+              Previous Page
+            </button>
+            <span
+              id="timelinePageIndicator"
+              class="timeline-page-indicator"
+            >
+              Page 1 of 1
+            </span>
+            <button
+              id="timelineNext"
+              type="button"
+              class="btn subtle-btn"
+            >
+              Next Page
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Polaroid gallery -->
+      <section id="polaroids" class="section polaroid-section">
+        <div class="section-header">
+          <p class="eyebrow reveal">Orbit III</p>
+          <h2 class="section-title reveal">Polaroids from Our Universe</h2>
+          <p class="section-subtitle reveal">
+            My Favourite Polaroids of you...😊 
+          </p>
+        </div>
+
+        <!-- Polaroid items are created dynamically based on galleryImages in script.js -->
+        <div id="polaroidGrid" class="polaroid-grid"></div>
+      </section>
+
+      <!-- 5. Digital letter -->
+      <section id="digital-letter" class="section letter-section">
+        <div class="section-header">
+          <p class="eyebrow reveal">Orbit IV</p>
+          <h2 class="section-title reveal">A Letter Written in Stars</h2>
+          <p class="section-subtitle reveal">
+            Open the envelope and let the words arrive one heartbeat at a time.
+          </p>
+        </div>
+
+        <div class="letter-layout">
+          <div class="envelope-wrapper reveal">
+            <button id="openLetter" class="envelope" aria-label="Open letter">
+              <div class="envelope-front"></div>
+              <div class="envelope-back"></div>
+            
+              <span class="envelope-label">Open Click Pannu</span>
+              <span class="envelope-seal">Open</span>
+            </button>
+          </div>
+
+          <article class="letter-card glass-panel reveal">
+            <header class="letter-header">
+              <h3>My digital letter to Atshaya</h3>
+              <button id="toggleMusic" class="icon-btn" type="button">
+                <span class="icon icon-music"></span>
+                <span class="icon-label">Music</span>
+              </button>
+            </header>
+            <p id="letterText" class="letter-body"></p>
+          </article>
+        </div>
+      </section>
+
+      <!-- 6. Reasons grid -->
+      <section id="reasons" class="section reasons-section">
+        <div class="section-header">
+          <p class="eyebrow reveal">Orbit V</p>
+          <h2 class="section-title reveal">10 Reasons You Are Amazing</h2>
+          <p class="section-subtitle reveal">
+            Tap a card and let each reason glow.
+          </p>
+        </div>
+
+        <div class="reason-grid">
+          <!-- Cards are populated and animated via CSS & JS, but content is easy to change here -->
+          <button class="reason-card reveal" data-reason-index="1">
+            <span class="reason-number">01</span>
+            <span class="reason-title">Your smile</span>
+            <span class="reason-message">
+              It turns ordinary rooms into constellations.
+            </span>
+          </button>
+          <button class="reason-card reveal" data-reason-index="2">
+            <span class="reason-number">02</span>
+            <span class="reason-title">Your kindness</span>
+            <span class="reason-message">
+              You make people feel like they&rsquo;re allowed to be soft.
+            </span>
+          </button>
+          <button class="reason-card reveal" data-reason-index="3">
+            <span class="reason-number">03</span>
+            <span class="reason-title">Your chaos</span>
+            <span class="reason-message">
+              Life is better a little unplanned, exactly like you.
+            </span>
+          </button>
+          <button class="reason-card reveal" data-reason-index="4">
+            <span class="reason-number">04</span>
+            <span class="reason-title">Your brain</span>
+            <span class="reason-message">
+              The way you think about the smallest things is art.
+            </span>
+          </button>
+          <button class="reason-card reveal" data-reason-index="5">
+            <span class="reason-number">05</span>
+            <span class="reason-title">Your heart</span>
+            <span class="reason-message">
+              You care too much, and that&rsquo;s your superpower.
+            </span>
+          </button>
+          <button class="reason-card reveal" data-reason-index="6">
+            <span class="reason-number">06</span>
+            <span class="reason-title">Your courage</span>
+            <span class="reason-message">
+              You survive every bad day and still choose to shine.
+            </span>
+          </button>
+          <button class="reason-card reveal" data-reason-index="7">
+            <span class="reason-number">07</span>
+            <span class="reason-title">Your weirdness</span>
+            <span class="reason-message">
+              You make nonsense feel like home.
+            </span>
+          </button>
+          <button class="reason-card reveal" data-reason-index="8">
+            <span class="reason-number">08</span>
+            <span class="reason-title">Your presence</span>
+            <span class="reason-message">
+              Any place with you stops being &ldquo;just a place.&rdquo;
+            </span>
+          </button>
+          <button class="reason-card reveal" data-reason-index="9">
+            <span class="reason-number">09</span>
+            <span class="reason-title">Your future</span>
+            <span class="reason-message">
+              The world hasn&rsquo;t even seen your best chapters yet.
+            </span>
+          </button>
+          <button class="reason-card reveal" data-reason-index="10">
+            <span class="reason-number">10</span>
+            <span class="reason-title">You, simply</span>
+            <span class="reason-message">
+              Existing as Atshaya is already enough.
+            </span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 7. Netflix-style movies -->
+      <section id="movies" class="section movies-section">
+        <div class="section-header">
+          <p class="eyebrow reveal">Orbit VI</p>
+          <h2 class="section-title reveal">Movies Inspired by You</h2>
+          <p class="section-subtitle reveal">
+            Imagine if your energy was a cinema universe.
+          </p>
+        </div>
+
+        <div class="movie-row reveal">
+          <article
+            class="movie-poster"
+            data-movie-title="The Girl Who Brightens My World"
+            data-movie-message="[YOUR_MESSAGE] &mdash; Write how Atshaya turns your worst days into soft ones."
+            data-movie-image="Photos/1770567693435.png"
+          >
+            <div class="movie-art movie-art--one">
+              <span class="movie-tag">Feature</span>
+              <span class="movie-title-short">Brightens My World</span>
+              <!-- Replace with any image inside /Photos -->
+              <img
+                src="Photos/1770567693435.png"
+                alt="The Girl Who Brightens My World poster"
+                loading="lazy"
+                class="movie-art-image"
+              />
+            </div>
+          </article>
+
+          <article
+            class="movie-poster"
+            data-movie-title="Mission: Make Me Smile"
+            data-movie-message="[YOUR_MESSAGE] &mdash; Describe the small things she does that feel like missions completed."
+            data-movie-image="Photos/1770567693435.png"
+          >
+            <div class="movie-art movie-art--two">
+              <span class="movie-tag">Original</span>
+              <span class="movie-title-short">Make Me Smile</span>
+              <!-- Replace with any image inside /Photos -->
+              <img
+                src="Photos/1770567693435.png"
+                alt="Mission: Make Me Smile poster"
+                loading="lazy"
+                class="movie-art-image"
+              />
+            </div>
+          </article>
+
+          <article
+            class="movie-poster"
+            data-movie-title="Queen of My Universe"
+            data-movie-message="[YOUR_MESSAGE] &mdash; Tell her how she became the main character of your galaxy."
+            data-movie-image="Photos/1770567693435.png"
+          >
+            <div class="movie-art movie-art--three">
+              <span class="movie-tag">Classic</span>
+              <span class="movie-title-short">Queen of My Universe</span>
+              <!-- Replace with any image inside /Photos -->
+              <img
+                src="Photos/1770567693435.png"
+                alt="Queen of My Universe poster"
+                loading="lazy"
+                class="movie-art-image"
+              />
+            </div>
+          </article>
+
+          <article
+            class="movie-poster"
+            data-movie-title="The Smile That Changed Everything"
+            data-movie-message="[YOUR_MESSAGE] &mdash; Share the exact moment her smile rewrote your story."
+            data-movie-image="Photos/1770567693435.png"
+          >
+            <div class="movie-art movie-art--four">
+              <span class="movie-tag">Limited</span>
+              <span class="movie-title-short">Smile That Changed</span>
+              <!-- Replace with any image inside /Photos -->
+              <img
+                src="Photos/1770567693435.png"
+                alt="The Smile That Changed Everything poster"
+                loading="lazy"
+                class="movie-art-image"
+              />
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 8. Virtual room exploration -->
+      <section id="room" class="section room-section">
+        <div class="section-header">
+          <p class="eyebrow reveal">Orbit VII</p>
+          <h2 class="section-title reveal">Your Little Cosmic Room</h2>
+          <p class="section-subtitle reveal">
+            Tap around the room. Each object hides a different kind of love.
+          </p>
+        </div>
+
+        <div class="room-scene reveal">
+          <div class="room-wall"></div>
+          <div class="room-floor"></div>
+          <div class="room-window"></div>
+          <div class="room-bed"></div>
+          <div class="room-desk"></div>
+          <div class="room-rug"></div>
+          <div class="room-frame"></div>
+          <!-- Replace with any image inside /Photos -->
+          <img
+            class="room-frame-photo"
+            src="Photos/1770567693435.png"
+            alt="Favorite photo of Atshaya"
+            loading="lazy"
+          />
+          <div class="room-diary"></div>
+          <div class="room-gift"></div>
+
+          <button
+            class="room-hotspot hotspot-frame"
+            data-room-action="open-polaroids"
+          >
+            Photo Frame
+          </button>
+          <button
+            class="room-hotspot hotspot-diary"
+            data-room-action="open-letter"
+          >
+            Diary
+          </button>
+          <button
+            class="room-hotspot hotspot-gift"
+            data-room-action="open-surprise"
+          >
+            Gift Box
+          </button>
+          <button
+            class="room-hotspot hotspot-window"
+            data-room-action="open-future"
+          >
+            Window
+          </button>
+        </div>
+      </section>
+
+      <!-- 9. Secret puzzle -->
+      <section id="secret-puzzle" class="section puzzle-section">
+        <div class="section-header">
+          <p class="eyebrow reveal">Orbit VIII</p>
+          <h2 class="section-title reveal">Secret Constellation Code</h2>
+          <p class="section-subtitle reveal">
+            Somewhere in this universe, a number is hiding. Find it and unlock
+            a secret message.
+          </p>
+        </div>
+
+        <div class="puzzle-layout reveal">
+          <div class="puzzle-display glass-panel">
+            <p class="puzzle-label">Enter the code</p>
+            <div id="puzzleScreen" class="puzzle-screen">••••</div>
+            <p id="puzzleHint" class="puzzle-hint">
+              Hint: Sometimes, the date means more than just a date.
+            </p>
+          </div>
+
+          <div class="puzzle-keypad glass-panel">
+            <div class="keypad-grid">
+              <button class="keypad-key" data-key="1">1</button>
+              <button class="keypad-key" data-key="2">2</button>
+              <button class="keypad-key" data-key="3">3</button>
+              <button class="keypad-key" data-key="4">4</button>
+              <button class="keypad-key" data-key="5">5</button>
+              <button class="keypad-key" data-key="6">6</button>
+              <button class="keypad-key" data-key="7">7</button>
+              <button class="keypad-key" data-key="8">8</button>
+              <button class="keypad-key" data-key="9">9</button>
+              <button class="keypad-key keypad-key--secondary" data-key="clear">
+                Clear
+              </button>
+              <button class="keypad-key" data-key="0">0</button>
+              <button class="keypad-key keypad-key--accent" data-key="enter">
+                Unlock
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. Future prediction machine -->
+      <section id="future" class="section prediction-section">
+        <div class="section-header">
+          <p class="eyebrow reveal">Orbit IX</p>
+          <h2 class="section-title reveal">Future Prediction Machine</h2>
+          <p class="section-subtitle reveal">
+            Press the button and let the universe whisper something sweet.
+          </p>
+        </div>
+
+        <div class="prediction-machine reveal glass-panel">
+          <button id="predictButton" class="btn primary-btn">
+            Predict My Future
+          </button>
+          <p id="predictionOutput" class="prediction-output">
+            Your future is loading...
+          </p>
+        </div>
+      </section>
+
+      <!-- 11. Map of memories -->
+      <section id="map" class="section map-section">
+        <div class="section-header">
+          <p class="eyebrow reveal">Orbit X</p>
+          <h2 class="section-title reveal">Map of Memories</h2>
+          <p class="section-subtitle reveal">
+            Each pin marks a place where the world felt different because of
+            you.
+          </p>
+        </div>
+
+        <!-- Memory pins (with optional images from /Photos) are created dynamically in script.js -->
+        <div id="memoryMap" class="memory-map reveal glass-panel"></div>
+      </section>
+
+      <!-- 12. What if you never existed -->
+      <section id="what-if" class="section what-if-section">
+        <div class="world world--before reveal">
+          <h2 class="world-title">A world without you.</h2>
+          <p class="world-text">
+            Grey mornings. Quieter rooms. Jokes that don&rsquo;t land. A sky
+            that looks fine but never breathtaking. That version of the world
+            almost existed.
+          </p>
+        </div>
+
+        <div class="world world--after reveal">
+          <h2 class="world-title">Good thing this world has you.</h2>
+          <p class="world-text">
+            Colors got louder. Music started making more sense. Even the worst
+            days came with tiny, stubborn pockets of joy. All because somewhere
+            on this planet, there is Atshaya.
+          </p>
+        </div>
+      </section>
+
+      <!-- 13. Hidden easter eggs (sprinkled stars) -->
+      <section id="easter-eggs" class="section easter-section">
+        <div class="section-header">
+          <p class="eyebrow reveal">Orbit XI</p>
+          <h2 class="section-title reveal">Secret Little Constellations</h2>
+          <p class="section-subtitle reveal">
+            Look around this section. Some stars here tell secrets if you tap
+            them.
+          </p>
+        </div>
+
+        <div class="easter-sky reveal">
+          <button class="easter-egg" aria-label="Secret star"></button>
+          <button class="easter-egg" aria-label="Secret star"></button>
+          <button class="easter-egg" aria-label="Secret star"></button>
+          <button class="easter-egg" aria-label="Secret star"></button>
+          <button class="easter-egg" aria-label="Secret star"></button>
+        </div>
+      </section>
+
+      <!-- 14. Interactive birthday cake -->
+      <section id="cake" class="section cake-section">
+        <div class="section-header">
+          <p class="eyebrow reveal">Orbit XII</p>
+          <h2 class="section-title reveal">Make a Birthday Wish</h2>
+          <p class="section-subtitle reveal">
+            Click the cake, blow out the candles, and let the confetti decide
+            the rest.
+          </p>
+        </div>
+
+        <div class="cake-wrapper reveal">
+          <button id="birthdayCake" class="cake" aria-label="Blow candles">
+            <div class="cake-plate"></div>
+            <div class="cake-body"></div>
+            <div class="candle-row">
+              <div class="candle">
+                <span class="flame"></span>
+              </div>
+              <div class="candle">
+                <span class="flame"></span>
+              </div>
+              <div class="candle">
+                <span class="flame"></span>
+              </div>
+            </div>
+          </button>
+        </div>
+      </section>
+
+      <!-- 15. Night sky message -->
+      <section id="night-sky" class="section night-section">
+        <div class="night-sky-wrapper reveal">
+          <div class="night-stars"></div>
+          <h2 class="night-message">Happy Birthday, Atshaya</h2>
+          <p class="night-subtitle">
+            The stars have been trying to spell this out since the day you were
+            born.
+          </p>
+        </div>
+      </section>
+
+      <!-- 16. Time capsule -->
+      <section id="time-capsule" class="section capsule-section">
+        <div class="section-header">
+          <p class="eyebrow reveal">Orbit XIII</p>
+          <h2 class="section-title reveal">Time Capsule for Future You</h2>
+          <p class="section-subtitle reveal">
+            Write a message to future-Atshaya. It will stay safely on this
+            device.
+          </p>
+        </div>
+
+        <div class="capsule-layout reveal glass-panel">
+          <textarea
+            id="capsuleMessage"
+            rows="5"
+            placeholder="[YOUR_MESSAGE] &mdash; What do you want your future self to remember about today?"
+          ></textarea>
+          <div class="capsule-actions">
+            <button id="saveCapsule" class="btn primary-btn">
+              Save to Time Capsule
+            </button>
+            <button id="clearCapsule" class="btn subtle-btn">
+              Clear
+            </button>
+          </div>
+          <p id="capsuleStatus" class="capsule-status"></p>
+        </div>
+      </section>
+
+      <!-- 17. Grand finale -->
+      <section id="finale" class="section finale-section">
+        <div class="fireworks-layer"></div>
+
+        <div class="finale-content reveal glass-panel">
+          <p class="eyebrow">Final Orbit</p>
+          <h2 class="finale-title">The world became brighter<br />the day you were born.</h2>
+          <p class="finale-text">
+            No words, no website, no cinematic scroll can fully explain how much
+            lighter the universe feels with you in it. But this was my attempt
+            to try.
+          </p>
+
+          <div class="finale-media">
+            <div class="video-placeholder">
+              <!-- Replace with any video inside /Photos -->
+              <video class="finale-video" controls preload="metadata">
+                <source src="Photos/mAst_vvcvideo_1764603371858.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <p>
+                Drop your own video message or montage into the Photos folder and
+                update the source above.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Shared modal for galleries, movies, memories, surprises -->
+    <div id="universeModal" class="modal" aria-hidden="true">
+      <div class="modal-backdrop"></div>
+      <div class="modal-dialog glass-panel">
+        <button class="modal-close" id="modalClose" aria-label="Close">
+          ×
+        </button>
+        <h3 id="modalTitle" class="modal-title"></h3>
+        <div id="modalBody" class="modal-body"></div>
+      </div>
+    </div>
+
+    <!-- Toast for easter eggs -->
+    <div id="toast" class="toast" aria-live="polite"></div>
+
+    <script src="script.js" defer></script>
+  </body>
+  </html>
+
